@@ -1,6 +1,6 @@
 const express = require("express")
 const { startGame, endGame, isStarted } = require("./server/start")
-const { drawCard, initDeck } = require("./server/raffle")
+const { drawCard, initDeck, remaining} = require("./server/raffle")
 const { hasDrawn, markDrawn, resetUsers } = require("./server/users")
 
 const app = express()
@@ -9,7 +9,8 @@ app.use(express.static("public"))
 
 app.get("/status", (req, res) => {
     res.json({
-        started: isStarted()
+        started: isStarted(),
+        remaining: remaining,
     })
 })
 
