@@ -10,7 +10,7 @@ app.use(express.static("public"))
 app.get("/status", (req, res) => {
     res.json({
         started: isStarted(),
-        remaining: remaining,
+        remaining: remaining(),
     })
 })
 
