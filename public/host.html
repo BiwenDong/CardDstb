@@ -1,13 +1,75 @@
 <!doctype html>
 <html lang="zh">
 <head>
-    <meta charset="utf-8">
-    <title>Host Panel</title>
+  <meta charset="utf-8">
+  <title>Host Panel</title>
+  <style>
+    body { font-family: sans-serif; max-width: 520px; margin: 24px auto; padding: 0 16px; }
+    .row { display: flex; align-items: center; gap: 12px; margin: 10px 0; }
+    label { width: 110px; }
+    input[type="number"] { width: 120px; padding: 6px; }
+    .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px 16px; margin: 12px 0; }
+    .actions { display: flex; gap: 10px; margin-top: 12px; }
+    button { padding: 8px 12px; }
+    #msg { margin-top: 12px; white-space: pre-wrap; }
+    .presets { display: flex; gap: 8px; flex-wrap: wrap; margin: 12px 0; }
+  </style>
 </head>
 <body>
-<button id="startBtn">开始游戏</button>
-<button id="endBtn">结束游戏</button>
-<p id="msg"></p>
-<script src="host.js"></script>
+  <h2>🧑‍⚖️ 主持人面板</h2>
+
+  <div class="row">
+    <label>游玩人数</label>
+    <input id="players" type="number" min="1" value="12">
+  </div>
+
+  <div class="presets">
+    <button id="preset6" type="button">填充 6 人预设</button>
+    <button id="preset9" type="button">填充 9 人预设</button>
+    <button id="preset12" type="button">填充 12 人预设</button>
+  </div>
+
+  <h3>身份数量</h3>
+  <div class="grid">
+    <div class="row"><label>狼人</label><input id="role_狼人" type="number" min="0" value="4"></div>
+    <div class="row"><label>平民</label><input id="role_平民" type="number" min="0" value="4"></div>
+    <div class="row"><label>女巫</label><input id="role_女巫" type="number" min="0" value="1"></div>
+    <div class="row"><label>预言家</label><input id="role_预言家" type="number" min="0" value="1"></div>
+    <div class="row"><label>猎人</label><input id="role_猎人" type="number" min="0" value="1"></div>
+    <div class="row"><label>守卫</label><input id="role_守卫" type="number" min="0" value="0"></div>
+    <div class="row"><label>白痴</label><input id="role_白痴" type="number" min="0" value="1"></div>
+  </div>
+
+  <div class="actions">
+    <button id="startBtn">开始游戏</button>
+    <button id="endBtn">结束游戏</button>
+  </div>
+  <hr />
+<h3>🪪 警长竞选</h3>
+<button id="sheriffStartBtn">开启竞选（举手+投票）</button>
+<button id="sheriffFinishBtn" disabled>结束投票并结算</button>
+<div id="sheriffPanel"></div>
+
+<hr />
+<h3>🌙 夜晚</h3>
+<button id="nightStartBtn">夜晚开始</button>
+<button id="nightEndBtn">夜晚结束（结算）</button>
+<div id="nightPanel"></div>
+
+
+<hr />
+<h3>🗳️ 公投出局</h3>
+<button id="voteStartBtn">开始投票</button>
+<button id="voteFinishBtn" disabled>结束投票并结算</button>
+<div id="votePanel"></div>
+
+
+
+  <p id="msg"></p>
+  <h3>抽牌记录</h3>
+<div id="draws"></div>
+
+
+  <script src="host.js"></script>
 </body>
 </html>

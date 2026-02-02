@@ -1,18 +1,55 @@
 <!doctype html>
 <html lang="zh">
 <head>
-    <meta charset="utf-8" />
-    <title>Card Distribution</title>
+  <meta charset="utf-8" />
+  <title>Card Distribution</title>
+  <style>
+    body { font-family: sans-serif; max-width: 520px; margin: 24px auto; padding: 0 16px; }
+    .row { display: flex; gap: 10px; align-items: center; margin: 10px 0; }
+    input { padding: 6px; width: 220px; }
+    button { padding: 8px 12px; }
+    #result { margin-top: 12px; font-size: 18px; }
+  </style>
 </head>
 <body>
-<h1></h1>
+  <h1>🎴 玩家抽牌</h1>
 
-<p id="status">等待主持人开始游戏…</p>
+  <div class="row">
+    <label>名字</label>
+    <input id="nameInput" placeholder="请输入你的名字（1-32字）" />
+    <button id="saveNameBtn">保存</button>
+  </div>
 
-<button id="drawBtn" disabled>抽一张卡</button>
+  <p id="status">等待主持人开始游戏…</p>
 
-<div id="result"></div>
+  <button id="drawBtn" disabled>抽一张卡</button>
 
-<script src="client.js"></script>
+  <div id="result"></div>
+
+  <hr />
+
+<h3>🪪 警长竞选</h3>
+<button id="runSheriffBtn" disabled>上警 / 退警</button>
+
+<div style="margin-top:10px;">
+  <label>投票给：</label>
+  <select id="sheriffSelect"></select>
+  <button id="voteSheriffBtn" disabled>投票</button>
+</div>
+
+<p id="sheriffInfo"></p>
+
+<div id="rolePanel"></div>
+
+<hr />
+<h3>🗳️ 公投</h3>
+<select id="voteSelect"></select>
+<button id="voteBtn" disabled>投票</button>
+<p id="voteInfo"></p>
+
+
+
+
+  <script src="client.js"></script>
 </body>
 </html>

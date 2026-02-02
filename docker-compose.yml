@@ -1,0 +1,15 @@
+services:
+  werewolf:
+    build: .
+    container_name: werewolf-node
+    environment:
+      PORT: "3000"
+    expose:
+      - "3000"
+    networks:
+      - edge-net
+    restart: unless-stopped
+
+networks:
+  edge-net:
+    external: true
